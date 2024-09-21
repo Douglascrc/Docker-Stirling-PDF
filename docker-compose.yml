@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  stirling-pdf:
+    image: frooodle/s-pdf:0.29.0
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./trainingData:/usr/share/tessdata
+      - ./extraConfigs:/extraConfigs
+      - ./customFiles:/customFiles
+    environment:
+      - DOCKER_ENABLE_SECURITY=true
+      - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=true
+      - LANGS=en_GB
